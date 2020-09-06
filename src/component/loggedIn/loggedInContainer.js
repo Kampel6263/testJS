@@ -1,0 +1,24 @@
+import React from 'react';
+import {connect} from "react-redux";
+import {logout} from "../../redux/auth-reducer";
+import LoggedIn from "./loggedIn";
+
+
+class LoggedInContainer extends React.Component {
+
+
+    render() {
+        return (
+            <LoggedIn {...this.props}/>
+        )
+    }
+
+
+}
+
+const mapStateToProps = (state) => ({
+    isAuth: state.auth.isAuth,
+    login: state.auth.login
+})
+
+export default connect(mapStateToProps, {logout})(LoggedInContainer);
